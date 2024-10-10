@@ -1,0 +1,52 @@
+{
+  "name": "cdk-example-app",
+  "version": "0.1.0",
+  "bin": {
+    "cdk-example-app": "bin/cdk-starters-lambda-app.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk",
+    "purge jest cache": "npx jest --clearCache",
+    "purge cdk.out": "rm -rvf cdk.out",
+    "purge modules": "rm -rvf node_modules",
+    "purge lockfile": "rm package-lock.json",
+    "purge cache": "npm cache clean -f"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "22.5.4",
+    "aws-cdk": "2.161.1",
+    "jest": "^29.7.0",
+    "jest-junit": "16.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.6.2"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.161.1",
+    "constructs": "^10.0.0"
+  },
+  "engines": {
+    "npm": ">=9.0.0",
+    "node": ">=20.0.0"
+  },
+  "jest-junit": {
+    "suiteName": "jest tests",
+    "outputDirectory": "./test-results",
+    "outputName": "junit.xml",
+    "uniqueOutputName": "false",
+    "classNameTemplate": "{classname}-{title}",
+    "titleTemplate": "{classname}-{title}",
+    "ancestorSeparator": " › ",
+    "usePathForSuiteName": "true"
+  },
+  "audit-level": "critical",
+  "lint-staged": {
+    "**/*.ts": [
+      "npm run test"
+    ]
+  }
+}
