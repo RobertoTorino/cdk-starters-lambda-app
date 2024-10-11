@@ -1,8 +1,5 @@
 def lambda_handler(event, context):
     event_info = f"Event received: {event}"
-    # Log event and context information
-    print("Event info: ", event)
-    print("Context info: ", vars(context))  # vars() is used to get context attributes in a readable format
 
     # Access context attributes
     context_info = (

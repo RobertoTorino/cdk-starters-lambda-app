@@ -3,7 +3,7 @@
 ## Latest AWS CDK docs
 > **For the latest CDK documentation, run `cdk docs`.**
  
-**Make sure you have the AWS CLI `aws --version` and AWS CDK `cdk --version` installed and configured with the necessary credentials, see: `software.sh`**
+**Make sure you have the AWS CLI `aws --version` and AWS CDK `cdk --version` installed and configured with the necessary credentials, see: `software.sh or software_extended`**
 
 **Check if the environment is already bootstrapped for the AWS CDK:**
 ```shell
