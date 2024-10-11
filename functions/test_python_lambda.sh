@@ -55,4 +55,4 @@ fi
 echo "The logical ID of the target Lambda function is: $target_lambda_id"
 
 # Test Python Lambda with SAM
-sam local invoke "$target_lambda_id" --no-event -t ../cdk.out/CdkStartersLambdaAppStack.template.json
+sam local invoke "$target_lambda_id"  -t ../cdk.out/CdkStartersLambdaAppStack.template.json

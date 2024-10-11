@@ -1,5 +1,5 @@
 # Execute a sequence of actions
-all: build testme testgo testpy iacreport testreport
+all: build testme testgo testpy iacreport testreport ossreport codereport
 # Manual executions: make clean, make diff, make deploy, make diagram make sso, make whereami.
 
 ## Build the templates
@@ -14,6 +14,12 @@ testgo:
 ## Test Python Lambda.
 testpy:
 	@bash ./functions/test_python_lambda.sh
+## Validate your IaC and publish html test report.
+ossreport:
+	@bash ./test/oss-vulnerabilities-report.sh
+## Validate your IaC and publish html test report.
+codereport:
+	@bash ./test/code-vulnerabilities-report.sh
 ## Validate your IaC and publish html test report.
 iacreport:
 	@bash ./test/iac-compliance-report.sh
