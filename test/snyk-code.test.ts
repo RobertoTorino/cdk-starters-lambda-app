@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // To prevent this test failing on a node_modules folder that is non-essential.
-describe("Snyk code test", () => {
+describe('Snyk code test', () => {
     const folderPath = path.join(__dirname, '../node_modules/aws-cdk/lib/init-templates');
 
     beforeAll((done) => {
@@ -11,14 +11,17 @@ describe("Snyk code test", () => {
         if (fs.existsSync(folderPath)) {
             console.log(`Folder exists, deleting: ${folderPath}`);
             // Delete the folder
-            fs.rmSync(folderPath, { recursive: true, force: true });
+            fs.rmSync(folderPath, {
+                recursive: true,
+                force: true
+            });
         }
         done();
     });
 
-    it("should run Snyk test with severity threshold high", (done) => {
+    it('should run Snyk test with severity threshold high', (done) => {
         // Run the Snyk test after the folder is deleted
-        exec("snyk test --fail-on=all --all-projects --allow-missing", (error, stdout, stderr) => {
+        exec('snyk test --fail-on=all --all-projects --allow-missing', (error, stdout, stderr) => {
             if (error) {
                 console.error(`error: ${error.message}`);
             }

@@ -29,7 +29,6 @@ ID=$(aws sts get-caller-identity --query Account --output text)
 ALIAS=$(aws iam list-account-aliases --query AccountAliases --output text)
 printf "$ID - " && printf "$ALIAS"; echo
 
-
 # Clean up Go
 go mod tidy
 

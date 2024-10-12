@@ -2,6 +2,7 @@ import { aws_lambda, Stack } from 'aws-cdk-lib';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import { Template } from 'aws-cdk-lib/assertions';
 
+
 test('Lambda function has correct handler and runtime', () => {
     // Create the stack
     const stack = new Stack();
