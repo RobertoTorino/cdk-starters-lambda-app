@@ -46,6 +46,25 @@ export class CdkStartersLambdaAppStack extends cdk.Stack {
             resources: [ '*' ],
         }));
 
+/*        // Add IAM permissions for Lambda to update the ECS service
+        const fnEcsPolicy = new iam.PolicyStatement({
+            effect: Effect.ALLOW,
+            actions: [ 'ecs:UpdateService' ],
+            resources: [ nonProdLvkFargateServiceArn ],
+        });
+        // Grant the necessary X-Ray permissions
+        const fnXrayRole = new iam.Role(this, 'LambdaXrayRole', {
+            roleName: 'LambdaXrayRole',
+            description: 'Lambda function role to give permissions for using XRay',
+            assumedBy: new iam.ServicePrincipal('lambda.amazonaws.com'),
+            managedPolicies: [
+                {
+                    managedPolicyArn: lambdaXrayManagedPolicyArn,
+                }
+            ]
+        });
+        fnXrayRole.addToPolicy(fnEcsPolicy);*/
+
         const fnPy = new aws_lambda.Function(this, 'CdkStartersPythonLambdaFunction', {
             runtime: aws_lambda.Runtime.PYTHON_3_12,
             memorySize: 128,

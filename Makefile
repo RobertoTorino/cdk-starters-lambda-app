@@ -14,10 +14,10 @@ testgo:
 ## Test Python Lambda.
 testpy:
 	@bash ./functions/test_python_lambda.sh
-## Validate your IaC and publish html test report.
+## Validate your open source code and publish html test report.
 ossreport:
 	@bash ./test/oss-vulnerabilities-report.sh
-## Validate your IaC and publish html test report.
+## Check your code for vulnerabilities and publish html test report.
 codereport:
 	@bash ./test/code-vulnerabilities-report.sh
 ## Validate your IaC and publish html test report.

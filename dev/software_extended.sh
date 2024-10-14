@@ -3,7 +3,7 @@
 set -e
 
 # List of software options
-OPTIONS=("SKIP" "QUIT" "HOMEBREW" "AWS" "GO" "MAKE" "NODE" "OPENJDK17" "PYTHON" "SAM")
+OPTIONS=("SKIP" "QUIT" "HOMEBREW" "AWSCLI" "GO" "MAKE" "NODE" "OPENJDK17" "PYTHON" "SAM")
 
 # Function to display the selection menu
 select_software() {
@@ -20,7 +20,7 @@ select_software() {
         COLUMNS=3
         select options in "${OPTIONS[@]}"; do
             case $options in
-            "HOMEBREW" | "AWS" | "SAM" | "GO" | "PYTHON" | "OPENJDK17" | "TERRAFORM" | "NODE" | "MAKE")
+            "HOMEBREW" | "AWSCLI" | "SAM" | "GO" | "PYTHON" | "OPENJDK17" | "TERRAFORM" | "NODE" | "MAKE")
                 echo "Installing: $options"
                 install_software "$options"
                 ;;
@@ -116,7 +116,7 @@ install_software() {
         fi
         ;;
 
-    "AWS")
+    "AWSCLI")
         current_version=$(aws --version 2>&1 | awk '{print $1}' | cut -d/ -f2)
         latest_version=$(get_latest_version_aws)
         # Check if software is installed
